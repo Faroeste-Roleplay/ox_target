@@ -1,46 +1,42 @@
--- FX Information
 fx_version 'cerulean'
-use_experimental_fxv2_oal 'yes'
+rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aware my resources *will* become incompatible once RedM ships.'
+game 'rdr3'
 lua54 'yes'
-game 'gta5'
 
--- Resource Information
 name 'ox_target'
-author 'Overextended'
-version '1.17.1'
-repository 'https://github.com/overextended/ox_target'
-description ''
+description 'target system for RSG RedM Framework'
+version '2.0.0'
+license 'MIT License'
+author 'Overextended & RSG'
 
--- Manifest
 ui_page 'web/index.html'
 
 shared_scripts {
-	'@ox_lib/init.lua',
+    '@ox_lib/init.lua',
 }
 
 client_scripts {
-	'client/main.lua',
+    'client/main.lua',
 }
 
 server_scripts {
-	'server/main.lua'
+    'server/main.lua',
+    -- 'server/versionchecker.lua',
 }
 
 files {
-	'web/**',
-	'locales/*.json',
-	'client/api.lua',
-	'client/utils.lua',
-	'client/state.lua',
-	'client/debug.lua',
-	'client/defaults.lua',
-	'client/framework/nd.lua',
-	'client/framework/ox.lua',
-	'client/framework/esx.lua',
-	'client/framework/qbx.lua',
-	'client/compat/qtarget.lua',
+    'web/**',
+    'locales/*.json',
+    'client/api.lua',
+    'client/utils.lua',
+    'client/state.lua',
+    'client/debug.lua',
+    'client/framework/rsg.lua',
+    'client/compat/qtarget.lua',
+    'client/compat/rsg-target.lua',
 }
 
 provide 'qtarget'
+provide 'rsg-target'
 
 dependency 'ox_lib'

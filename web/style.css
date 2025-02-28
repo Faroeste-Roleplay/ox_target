@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap");
+@import url('https://db.onlinewebfonts.com/c/ab21a97b9cae2e116d8d1473baefc9f0?family=RDR+Lino+Regular');
 
 :root {
   --color-default: #cfd2da;
@@ -47,7 +47,7 @@ p {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  font-family: "Nunito";
+  font-family: "RDR Lino Regular";
   background: linear-gradient(
     90deg,
     rgba(20, 20, 20, 0.7) 0%,

@@ -11,6 +11,5 @@
   "debug_ped": "(Debug) Ped",
   "debug_vehicle": "(Debug) Vozidlo",
   "debug_object": "(Debug) Objekt",
-  "toggle_targeting": "Výběr zaměření",
-  "go_back": "Zpět"
+  "toggle_targeting": "Výběr zaměření"
 }
