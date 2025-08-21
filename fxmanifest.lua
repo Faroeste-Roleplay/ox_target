@@ -1,42 +1,42 @@
-fx_version 'cerulean'
-rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aware my resources *will* become incompatible once RedM ships.'
-game 'rdr3'
+-- FX Information
+fx_version 'adamant'
 lua54 'yes'
 
-name 'ox_target'
-description 'target system for RSG RedM Framework'
-version '2.0.0'
-license 'MIT License'
-author 'Overextended & RSG'
+game 'rdr3'
+rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aware my resources *will* become incompatible once RedM ships.'
 
-ui_page 'web/index.html'
+-- Resource Information
+name 'ox_target'
+version '1.0.0'
+description ''
+
 
 shared_scripts {
-    '@ox_lib/init.lua',
+	'@frp_lib/library/linker.lua',
+	'@ox_lib/init.lua',
 }
 
 client_scripts {
-    'client/main.lua',
+	'client/api.lua',
+	'client/utils.lua',
+	'client/framework/frp.lua',
+
+	'client/state.lua',
+	'client/models.lua',
+	'client/main.lua',
+	
+	'client/defaults.lua',
 }
 
 server_scripts {
-    'server/main.lua',
-    -- 'server/versionchecker.lua',
+	'server/main.lua'
 }
 
 files {
-    'web/**',
-    'locales/*.json',
-    'client/api.lua',
-    'client/utils.lua',
-    'client/state.lua',
-    'client/debug.lua',
-    'client/framework/rsg.lua',
-    'client/compat/qtarget.lua',
-    'client/compat/rsg-target.lua',
+	'nui/build/**/*',
 }
 
-provide 'qtarget'
-provide 'rsg-target'
+ui_page 'nui/build/index.html'
 
+dependency 'frp_lib'
 dependency 'ox_lib'

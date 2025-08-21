@@ -1,4 +1,6 @@
-lib.checkDependency('ox_lib', '3.0.0', true)
+lib.versionCheck('overextended/ox_target')
+
+if not lib.checkDependency('ox_lib', '3.21.0', true) then return end
 
 ---@type table<number, EntityInterface>
 local entityStates = {}
@@ -8,6 +10,16 @@ RegisterNetEvent('ox_target:setEntityHasOptions', function(netId)
     local entity = Entity(NetworkGetEntityFromNetworkId(netId))
     entity.state.hasTargetOptions = true
     entityStates[netId] = entity
+end)
+
+---@param netId number
+---@param door number
+RegisterNetEvent('ox_target:toggleEntityDoor', function(netId, door)
+    local entity = NetworkGetEntityFromNetworkId(netId)
+    if not DoesEntityExist(entity) then return end
+
+    local owner = NetworkGetEntityOwner(entity)
+    TriggerClientEvent('ox_target:toggleEntityDoor', owner, netId, door)
 end)
 
 CreateThread(function()

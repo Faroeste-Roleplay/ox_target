@@ -1,9 +1,7 @@
 ---@class OxTargetOption
 ---@field resource? string
 
-local utils = require 'client.utils'
-
-local api = setmetatable({}, {
+api = setmetatable({}, {
     __newindex = function(self, index, value)
         rawset(self, index, value)
         exports(index, value)
@@ -37,6 +35,13 @@ local function checkOptions(options)
     end
 
     return options
+end
+
+function api.playerHasItem( item, amount )
+    local playerId = GetPlayerServerId(PlayerId())
+    local itemCount = utils.hasItem( playerId, item )
+    
+    return itemCount >= ( amount or 1 )
 end
 
 ---@param data OxTargetPolyZone | table
@@ -524,5 +529,3 @@ end
 function api.isActive()
     return state.isActive()
 end
-
-return api
